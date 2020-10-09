@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity PaymentTransaction.
+    -->
+    <changeSet id="20201009174043-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="visa_application_id"
+                                 baseTableName="payment_transaction"
+                                 constraintName="fk_payment_transaction_visa_application_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visa_application"/>
+
+    </changeSet>
+</databaseChangeLog>

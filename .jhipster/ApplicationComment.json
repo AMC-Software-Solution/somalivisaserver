@@ -1,0 +1,52 @@
+{
+  "name": "ApplicationComment",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "comment",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "commentDate",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "commenterType",
+      "fieldType": "CommenterType",
+      "fieldValues": "EMPLOYEE,APPLICANT"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "visaApplication",
+      "otherEntityRelationshipName": "applicationComment",
+      "relationshipName": "visaApplication",
+      "otherEntityField": "applicationName"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "applicationComment",
+      "relationshipName": "commentedBy",
+      "otherEntityField": "login"
+    }
+  ],
+  "changelogDate": "20201009173943",
+  "entityTableName": "application_comment",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

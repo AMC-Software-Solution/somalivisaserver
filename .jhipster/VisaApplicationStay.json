@@ -1,0 +1,54 @@
+{
+  "name": "VisaApplicationStay",
+  "fields": [
+    {
+      "fieldName": "durationOfProposedStayInDays",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nameOfHostingPersonOrcompany",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stayingLocationName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stayLocationFullAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stayLocationTelephoneNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stayLocationEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "whoCoversCostOfApplicantsStay",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "visaApplication",
+      "otherEntityRelationshipName": "visaApplicationStay",
+      "relationshipName": "visaApplication",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201009173843",
+  "entityTableName": "visa_application_stay",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

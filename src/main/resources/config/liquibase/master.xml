@@ -14,7 +14,26 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009173443_added_entity_Applicant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009173543_added_entity_ApplicantTravelDocument.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009173643_added_entity_ApplicantContactInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009173743_added_entity_VisaApplication.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009173843_added_entity_VisaApplicationStay.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009173943_added_entity_ApplicationComment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009174043_added_entity_PaymentTransaction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009174143_added_entity_ApplicationFee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009174243_added_entity_AppSetting.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009174343_added_entity_SystemSetting.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009174443_added_entity_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009174543_added_entity_ElectronicVisa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009174643_added_entity_Employee.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20201009173443_added_entity_constraints_Applicant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009173543_added_entity_constraints_ApplicantTravelDocument.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009173743_added_entity_constraints_VisaApplication.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009173943_added_entity_constraints_ApplicationComment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009174043_added_entity_constraints_PaymentTransaction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201009174643_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

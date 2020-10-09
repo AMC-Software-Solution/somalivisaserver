@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity VisaApplication.
+    -->
+    <changeSet id="20201009173743-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="visa_application_stay_id"
+                                 baseTableName="visa_application"
+                                 constraintName="fk_visa_application_visa_application_stay_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visa_application_stay"/>
+
+        <addForeignKeyConstraint baseColumnNames="application_fee_id"
+                                 baseTableName="visa_application"
+                                 constraintName="fk_visa_application_application_fee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="application_fee"/>
+
+        <addForeignKeyConstraint baseColumnNames="electronic_visa_id"
+                                 baseTableName="visa_application"
+                                 constraintName="fk_visa_application_electronic_visa_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="electronic_visa"/>
+
+        <addForeignKeyConstraint baseColumnNames="approved_by_id"
+                                 baseTableName="visa_application"
+                                 constraintName="fk_visa_application_approved_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+    </changeSet>
+</databaseChangeLog>

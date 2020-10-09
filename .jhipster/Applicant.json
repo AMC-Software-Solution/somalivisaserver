@@ -1,0 +1,104 @@
+{
+  "name": "Applicant",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "middleNames",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fullName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateOfBirth",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "placeOfBirth",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sex",
+      "fieldType": "Gender",
+      "fieldValues": "MALE,FEMALE",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "maritalStatus",
+      "fieldType": "MaritalStatus",
+      "fieldValues": "SINGLE,MARRIED,DIVORCED,WIDOW,WIDOWER,SEPARATED",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "occupation",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "photo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "applicantContactInfo",
+      "otherEntityRelationshipName": "applicant",
+      "relationshipName": "applicantContactInfo",
+      "otherEntityField": "email",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "applicant",
+      "relationshipName": "nationality",
+      "otherEntityField": "countryName"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "applicant",
+      "relationshipName": "countryOfBirth",
+      "otherEntityField": "countryName"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "applicant",
+      "relationshipName": "nationalityAtBirth",
+      "otherEntityField": "countryName"
+    }
+  ],
+  "changelogDate": "20201009173443",
+  "entityTableName": "applicant",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

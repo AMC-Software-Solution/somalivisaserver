@@ -1,0 +1,48 @@
+{
+  "name": "ApplicantContactInfo",
+  "fields": [
+    {
+      "fieldName": "applicantsHomeAddress",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "telephoneNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "employer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "employersAddress",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "applicant",
+      "otherEntityRelationshipName": "applicantContactInfo",
+      "relationshipName": "applicant",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201009173643",
+  "entityTableName": "applicant_contact_info",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

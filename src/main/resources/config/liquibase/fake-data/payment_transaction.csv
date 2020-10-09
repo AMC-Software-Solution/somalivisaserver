@@ -1,0 +1,11 @@
+id;transaction_amount;payment_type;payment_description;payment_status;transaction_date;payment_provider
+1;33786;CASH;digital Unbranded Steel Chair;PENDING;2020-10-09T02:08:38;Mouse applications Lead
+2;26041;MOBILE_PAYMENT;Planner;CANCELLED;2020-10-09T05:22:15;Accounts
+3;309;PAY_PAL;Incredible Baht Rhode Island;REJECTED;2020-10-09T01:26:48;violet programming Syrian Pound
+4;23425;PAY_PAL;bypassing workforce;CANCELLED;2020-10-08T22:16:14;Licensed Barbados Refined Wooden Shoes
+5;83467;CASH;unleash North Dakota EXE;UNPAID;2020-10-09T05:00:07;4th generation invoice
+6;1528;PAY_PAL;Rubber revolutionary;UNPAID;2020-10-09T15:39:51;Corporate
+7;48461;CASH;Architect;PENDING;2020-10-08T17:40:46;Bermuda
+8;46746;CASH;transmitting ROI monitor;PAID;2020-10-08T19:58:16;Philippine Peso New Caledonia
+9;43764;PAY_PAL;Solutions approach;CANCELLED;2020-10-08T22:40:19;Licensed Cotton Chicken Tuna
+10;33991;CASH;navigating;UNPAID;2020-10-09T13:26:16;generate Cheese Optional

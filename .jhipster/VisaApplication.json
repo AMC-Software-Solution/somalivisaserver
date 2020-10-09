@@ -1,0 +1,123 @@
+{
+  "name": "VisaApplication",
+  "fields": [
+    {
+      "fieldName": "applicationName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "applicationCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "applicationDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "applicationStatus",
+      "fieldType": "ApplicationStatus",
+      "fieldValues": "RECEIVED,UNDER_PROCESS,APPROVED,CANCELLED,REJECTED"
+    },
+    {
+      "fieldName": "travelPurpose",
+      "fieldType": "TravelPurpose",
+      "fieldValues": "TOURISM,BUSINESS,OFFICIAL_VISIT,TRANSIT,STUDY,MEDICAL,CULTURE,SPORTS,OTHER",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "visaType",
+      "fieldType": "VisaType",
+      "fieldValues": "SINGLE_ENTRY,MULTIPLE_ENTRY,TRANSIT",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "travelMode",
+      "fieldType": "TravelMode",
+      "fieldValues": "AIR,SEA,LAND",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "portOfEntry",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "numberOfEntriesRequested",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "intendedDateOfArrival",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "intendedDateOfDeparture",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "validUntil",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "travelPurposeOther",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rejectReason",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "approvedDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "visaApplicationStay",
+      "otherEntityRelationshipName": "visaApplication",
+      "relationshipName": "visaApplicationStay",
+      "otherEntityField": "stayLocationFullAddress",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "applicationFee",
+      "otherEntityRelationshipName": "visaApplication",
+      "relationshipName": "applicationFee",
+      "otherEntityField": "description",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "electronicVisa",
+      "otherEntityRelationshipName": "visaApplication",
+      "relationshipName": "electronicVisa",
+      "otherEntityField": "visaNumber",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "visaApplication",
+      "relationshipName": "approvedBy",
+      "otherEntityField": "employeeFullName",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201009173743",
+  "entityTableName": "visa_application",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

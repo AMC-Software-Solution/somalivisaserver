@@ -1,0 +1,57 @@
+{
+  "name": "ApplicantTravelDocument",
+  "fields": [
+    {
+      "fieldName": "documentNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateOfIssue",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "expiryDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "issuingAuthority",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "documentPhoto",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "typeOfDocument",
+      "fieldType": "TypeOfTravelDocument",
+      "fieldValues": "ORDINARY_PASSPORT,SERVICE_PASSPORT,DIPLOMATIC_PASSPORT,OFFICIAL_PASSPORT,SUPPORTING_DOCUMENT,OTHER",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "applicant",
+      "otherEntityRelationshipName": "applicantTravelDocument",
+      "relationshipName": "applicant",
+      "otherEntityField": "fullName"
+    }
+  ],
+  "changelogDate": "20201009173543",
+  "entityTableName": "applicant_travel_document",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

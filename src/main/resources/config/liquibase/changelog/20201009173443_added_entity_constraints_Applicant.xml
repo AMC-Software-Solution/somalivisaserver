@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Applicant.
+    -->
+    <changeSet id="20201009173443-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="applicant_contact_info_id"
+                                 baseTableName="applicant"
+                                 constraintName="fk_applicant_applicant_contact_info_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="applicant_contact_info"/>
+
+        <addForeignKeyConstraint baseColumnNames="nationality_id"
+                                 baseTableName="applicant"
+                                 constraintName="fk_applicant_nationality_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="country"/>
+
+        <addForeignKeyConstraint baseColumnNames="country_of_birth_id"
+                                 baseTableName="applicant"
+                                 constraintName="fk_applicant_country_of_birth_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="country"/>
+
+        <addForeignKeyConstraint baseColumnNames="nationality_at_birth_id"
+                                 baseTableName="applicant"
+                                 constraintName="fk_applicant_nationality_at_birth_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="country"/>
+
+    </changeSet>
+</databaseChangeLog>

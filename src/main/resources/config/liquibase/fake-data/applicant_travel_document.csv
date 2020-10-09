@@ -1,0 +1,11 @@
+id;document_number;date_of_issue;expiry_date;issuing_authority;document_photo;document_photo_content_type;type_of_document
+1;tan;2020-10-09;2020-10-08;override;../fake-data/blob/hipster.png;image/png;OTHER
+2;Fresh Accounts Islands;2020-10-09;2020-10-09;Rue Fully-configurable Maine;../fake-data/blob/hipster.png;image/png;SUPPORTING_DOCUMENT
+3;Soft;2020-10-09;2020-10-09;Marketing demand-driven Savings Account;../fake-data/blob/hipster.png;image/png;DIPLOMATIC_PASSPORT
+4;Industrial XML;2020-10-09;2020-10-08;hard drive;../fake-data/blob/hipster.png;image/png;OFFICIAL_PASSPORT
+5;Borders Senior;2020-10-09;2020-10-09;RAM India Pre-emptive;../fake-data/blob/hipster.png;image/png;ORDINARY_PASSPORT
+6;Awesome Fresh Bacon synthesizing;2020-10-08;2020-10-08;Handcrafted Granite Chair Specialist array;../fake-data/blob/hipster.png;image/png;SUPPORTING_DOCUMENT
+7;Handcrafted;2020-10-09;2020-10-09;Borders;../fake-data/blob/hipster.png;image/png;OTHER
+8;Cambridgeshire;2020-10-09;2020-10-09;parse wireless Chair;../fake-data/blob/hipster.png;image/png;SERVICE_PASSPORT
+9;Refined Metal Hat program;2020-10-09;2020-10-09;customized monitor;../fake-data/blob/hipster.png;image/png;ORDINARY_PASSPORT
+10;visionary convergence;2020-10-09;2020-10-09;EXE;../fake-data/blob/hipster.png;image/png;SUPPORTING_DOCUMENT

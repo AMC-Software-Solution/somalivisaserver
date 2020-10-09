@@ -48,6 +48,19 @@ public class CacheConfiguration {
             createCache(cm, so.gov.mfa.visa.domain.User.class.getName());
             createCache(cm, so.gov.mfa.visa.domain.Authority.class.getName());
             createCache(cm, so.gov.mfa.visa.domain.User.class.getName() + ".authorities");
+            createCache(cm, so.gov.mfa.visa.domain.Applicant.class.getName());
+            createCache(cm, so.gov.mfa.visa.domain.ApplicantTravelDocument.class.getName());
+            createCache(cm, so.gov.mfa.visa.domain.ApplicantContactInfo.class.getName());
+            createCache(cm, so.gov.mfa.visa.domain.VisaApplication.class.getName());
+            createCache(cm, so.gov.mfa.visa.domain.VisaApplicationStay.class.getName());
+            createCache(cm, so.gov.mfa.visa.domain.ApplicationComment.class.getName());
+            createCache(cm, so.gov.mfa.visa.domain.PaymentTransaction.class.getName());
+            createCache(cm, so.gov.mfa.visa.domain.ApplicationFee.class.getName());
+            createCache(cm, so.gov.mfa.visa.domain.AppSetting.class.getName());
+            createCache(cm, so.gov.mfa.visa.domain.SystemSetting.class.getName());
+            createCache(cm, so.gov.mfa.visa.domain.Country.class.getName());
+            createCache(cm, so.gov.mfa.visa.domain.ElectronicVisa.class.getName());
+            createCache(cm, so.gov.mfa.visa.domain.Employee.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

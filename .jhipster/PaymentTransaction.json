@@ -1,0 +1,55 @@
+{
+  "name": "PaymentTransaction",
+  "fields": [
+    {
+      "fieldName": "transactionAmount",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "paymentType",
+      "fieldType": "PaymentType",
+      "fieldValues": "CASH,CARD,MOBILE_PAYMENT,PAY_PAL",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "paymentDescription",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "paymentStatus",
+      "fieldType": "PaymentStatus",
+      "fieldValues": "PAID,UNPAID,CANCELLED,REJECTED,PENDING",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "transactionDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "paymentProvider",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "visaApplication",
+      "otherEntityRelationshipName": "paymentTransaction",
+      "relationshipName": "visaApplication",
+      "otherEntityField": "applicationName"
+    }
+  ],
+  "changelogDate": "20201009174043",
+  "entityTableName": "payment_transaction",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
