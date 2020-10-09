@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "so.gov.mfa.visa",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.10.3",
+    "applicationType": "monolith",
+    "baseName": "somalivisaserver",
+    "packageName": "so.gov.mfa.visa",
+    "packageFolder": "so/gov/mfa/visa",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MDc5MzdkZWI0MzMxNGNkODk0OWE3MTkxY2I4NzFmN2Y1ZjgyOWFiNjA3NmQ2ZTQzZmI5NTdiMmI5MTdiN2FmNmQ2YzhhM2ViNjVhMTNhNDFkOGU3MGFhZDk0NzgxZTdmNjVkZDdhOGQzOWVlMzkwMjc5NDc0MGZjZjQ3NzRjN2I=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1602258455460,
+    "testFrameworks": ["gatling", "cucumber"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": ["en", "fr"],
+    "blueprints": [],
+    "skipClient": true
+  }
+}

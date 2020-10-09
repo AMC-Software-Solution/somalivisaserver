@@ -1,0 +1,22 @@
+version: '2'
+services:
+  somalivisaserver-app:
+    image: somalivisaserver
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://somalivisaserver-mysql:3306/somalivisaserver?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+      - SPRING_DATA_JEST_URI=http://somalivisaserver-elasticsearch:9200
+      - SPRING_ELASTICSEARCH_REST_URIS=http://somalivisaserver-elasticsearch:9200
+    ports:
+      - 8080:8080
+  somalivisaserver-mysql:
+    extends:
+      file: mysql.yml
+      service: somalivisaserver-mysql
+  somalivisaserver-elasticsearch:
+    extends:
+      file: elasticsearch.yml
+      service: somalivisaserver-elasticsearch
