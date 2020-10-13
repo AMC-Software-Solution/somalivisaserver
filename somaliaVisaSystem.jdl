@@ -1,0 +1,321 @@
+
+enum Title {
+	MR,
+	MRS,
+	DR
+	
+}
+
+enum Gender {
+	MALE,
+	FEMALE
+}
+
+enum VisaType {
+	
+	SINGLE_ENTRY,
+	MULTIPLE_ENTRY,
+	TRANSIT
+	
+}
+
+enum TravelPurpose {
+	TOURISM,
+	BUSINESS,
+	OFFICIAL_VISIT,
+	TRANSIT,
+	STUDY,
+	MEDICAL,
+	CULTURE,
+	SPORTS,
+	OTHER
+}
+
+enum MaritalStatus {
+	SINGLE,
+	MARRIED,
+	DIVORCED,
+	WIDOW,
+	WIDOWER,
+	SEPARATED
+}
+
+enum ApplicationStatus {
+	RECEIVED,
+	UNDER_PROCESS,
+	APPROVED,
+	CANCELLED,
+	REJECTED
+}
+
+enum TypeOfTravelDocument {
+	ORDINARY_PASSPORT,
+    SERVICE_PASSPORT,
+    DIPLOMATIC_PASSPORT,
+    OFFICIAL_PASSPORT,
+    SUPPORTING_DOCUMENT,
+    OTHER
+}
+
+enum TravelMode {
+	AIR,
+	SEA,
+	LAND
+
+}
+
+enum CommenterType {
+	EMPLOYEE,
+	APPLICANT
+	
+}
+
+  enum PaymentType {
+  	CASH,
+  	CARD,
+  	MOBILE_PAYMENT,
+  	PAY_PAL
+  	}
+  
+
+enum PaymentStatus {
+	PAID,
+	UNPAID,
+	CANCELLED,
+	REJECTED,
+	PENDING
+	
+}
+
+
+entity Applicant {
+  title String required required,
+  firstName String required,
+  middleNames String required,
+  lastName String required,
+  fullName String, 
+  dateOfBirth LocalDate required,
+  placeOfBirth String required,
+  sex Gender required,
+  maritalStatus MaritalStatus required,
+  occupation String required,
+  photo ImageBlob required
+}
+entity ApplicantTravelDocument {
+  documentNumber String required, 
+  dateOfIssue LocalDate required ,
+  expiryDate LocalDate required,
+  issuingAuthority String required,
+  documentPhoto ImageBlob required,
+  typeOfDocument TypeOfTravelDocument required
+}
+
+entity ApplicantContactInfo {
+  applicantsHomeAddress String required,
+  telephoneNumber String required,
+  email String required,
+  employer String,
+  employersAddress String
+  nextOfKinName String,
+  nextOfKinTelephoneNumber String
+}
+
+// Minor is a person (child) under the age of 18 who is traveling with 
+// the applicant and wants to be included on this visa 
+entity Minor {
+	nameOfTheMinor String required,
+	minorPassportNumber String required,
+	minorDateOfBirth LocalDate required
+}
+
+entity VisaApplication {
+   applicationName String required,
+   applicationCode String,
+   applicationDate ZonedDateTime,
+   applicationStatus ApplicationStatus,
+   travelPurpose TravelPurpose required,
+   visaType VisaType required,
+   travelMode TravelMode required,
+   portOfEntry String required,
+   numberOfEntriesRequested String required,
+   intendedDateOfArrival LocalDate required,
+   intendedDateOfDeparture LocalDate required,
+   validUntil LocalDate required,
+   travelPurposeOther String,
+   rejectReason String,
+   approvedDate ZonedDateTime,
+   previouslyAppliedVisa Boolean
+
+   
+
+
+}
+ 
+  
+entity VisaApplicationStay {
+  durationOfProposedStayInDays Integer required,
+  nameOfHostingPersonOrCompany String,
+  stayingLocationName String,
+  stayLocationFullAddress String,
+  stayLocationTelephoneNumber String,
+  stayLocationEmail String,
+  whoCoversCostOfApplicantsStay String
+  }
+  
+  entity ApplicationComment {
+  	title String required,
+	comment String required,
+	commentDate ZonedDateTime required,
+	commenterType CommenterType
+
+	}
+  
+  // connect Payment 
+  entity PaymentTransaction {
+  	 transactionAmount Double required,
+	 paymentType PaymentType required, 
+	 paymentDescription String required,
+	 paymentStatus PaymentStatus required,
+	 transactionDate ZonedDateTime,
+	 paymentProvider String
+  }
+   
+
+  // connect to Application
+  entity ApplicationFee {
+  	amount Double required,
+  	description String required,
+  	currency String required,
+  	currentIsoCode String required
+  }
+  
+
+
+
+entity SystemSetting {
+   fieldName String required,
+   fieldValue String required,
+   defaultValue String required,
+   settingEnabled Boolean,
+   createdDate ZonedDateTime,
+   updatedDate ZonedDateTime,
+   appCode Integer 
+}
+
+entity Country {
+	countryName String required maxlength(100),
+	countryIsoCode String maxlength(3),
+	countryFlagUrl String,
+	countryCallingCode String,
+	countryTelDigitLength Integer
+}
+
+entity ElectronicVisa {
+	firstName String required,
+	lastName String required,
+	visaNumber String required,
+	barcode String required,
+	nationality String required,
+	placeOfBirth String required,
+	travelDocument String required,
+	travelDocumentIssueDate LocalDate required,
+	travelDocumentExpiryDate LocalDate required,
+	travelPurpose String required,
+	visaValidFrom LocalDate required,
+	visaValidUntil LocalDate required,
+	visaValidityType String required,
+	visaType String required
+	
+}
+
+entity Employee { 
+   employeeFullName String,
+   profession String,
+   phone String,
+   gender Gender,
+   bio String,
+   profilePhoto ImageBlob,
+   profilePhotoUrl String,
+   enabled Boolean,
+   reason String,
+   createdDate ZonedDateTime,
+   lastUpdatedDate ZonedDateTime
+}
+
+  
+relationship ManyToOne {
+    Employee {user (login)} to User
+ }  
+ 
+relationship OneToOne {
+   Applicant{applicantContactInfo(email)} to ApplicantContactInfo{applicant(fullName)}
+}
+
+
+
+relationship ManyToOne {
+	ApplicantTravelDocument {applicant(fullName)} to Applicant
+}
+
+relationship ManyToOne {
+	Applicant {nationality(countryName)} to Country
+}
+
+relationship ManyToOne {
+	Applicant {countryOfBirth(countryName)} to Country
+}
+
+relationship ManyToOne {
+	Applicant {nationalityAtBirth(countryName)} to Country
+}
+
+relationship OneToOne {
+   Applicant{applicantContactInfo(email)} to ApplicantContactInfo{applicant(fullName)}
+}
+
+
+
+
+
+relationship OneToOne {
+   VisaApplication{visaApplicationStay(stayLocationFullAddress)} to VisaApplicationStay{visaApplication(applicationName)}
+}
+
+relationship ManyToOne {
+	ApplicationComment {visaApplication(applicationName)} to VisaApplication
+}
+
+relationship ManyToOne {
+	PaymentTransaction {visaApplication(applicationName)} to VisaApplication
+}
+
+relationship OneToOne {
+   VisaApplication{applicationFee(description)} to ApplicationFee{visaApplication(applicationName)}
+}
+
+relationship OneToOne {
+   VisaApplication{electronicVisa(visaNumber)} to ElectronicVisa{visaApplication(applicationName)}
+}
+
+relationship OneToOne {
+   VisaApplication{approvedBy(employeeFullName)} to Employee
+}
+
+relationship ManyToOne {
+	ApplicationComment {commentedBy(login)} to User
+}
+
+relationship ManyToOne {
+	Minor {visaApplication(applicationName)} to VisaApplication
+}
+
+relationship ManyToOne {
+	VisaApplication {applicant(fullName)} to Applicant
+}
+	 
+
+paginate Applicant,ApplicantTravelDocument,ApplicantContactInfo,VisaApplication,VisaApplicationStay,ApplicationComment,PaymentTransaction,ApplicationFee,SystemSetting,Country,ElectronicVisa,Employee,Minor  with pagination
+dto Applicant,ApplicantTravelDocument,ApplicantContactInfo,VisaApplication,VisaApplicationStay,ApplicationComment,PaymentTransaction,ApplicationFee,SystemSetting,Country,ElectronicVisa,Employee,Minor   with mapstruct
+service  Applicant,ApplicantTravelDocument,ApplicantContactInfo,VisaApplication,VisaApplicationStay,ApplicationComment,PaymentTransaction,ApplicationFee,SystemSetting,Country,ElectronicVisa,Employee,Minor   with serviceClass
+search Applicant,ApplicantTravelDocument,ApplicantContactInfo,VisaApplication,VisaApplicationStay,ApplicationComment,PaymentTransaction,ApplicationFee,SystemSetting,Country,ElectronicVisa,Employee,Minor   with elasticsearch
+
